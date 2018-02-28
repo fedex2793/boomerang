@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # [Start Bootstrap - One Page Wonder](https://startbootstrap.com/template-overviews/one-page-wonder/)
 
 [One Page Wonder](http://startbootstrap.com/template-overviews/one-page-wonder/) is a basic one page template for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/).
@@ -60,3 +61,16 @@ Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework 
 ## Copyright and License
 
 Copyright 2013-2018 Blackrock Digital LLC. Code released under the [MIT](https://github.com/BlackrockDigital/startbootstrap-one-page-wonder/blob/gh-pages/LICENSE) license.
+=======
+# Boomerang
+
+> Sitio Boomerang
+
+
+# Pasos para correr app
+
+```
+$ npm install
+$ gulp start
+```
+>>>>>>> 01249a693b42bfb6da3bde3b75bd476240fd78de
