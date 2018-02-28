@@ -41,6 +41,10 @@ h6 {
   font-weight: 700;
 }
 
+.navbar-custom .navbar-brand .banner-logo {
+  width: 90px;
+}
+
 .navbar-custom .navbar-nav .nav-item .nav-link {
   text-transform: uppercase;
   font-size: 0.8rem;
