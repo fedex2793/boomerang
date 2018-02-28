@@ -1,173 +1,80 @@
-var gulp = require('gulp'),
-    webserver = require('gulp-webserver'),
-    del = require('del'),
-    sass = require('gulp-sass'),
-    jshint = require('gulp-jshint'),
-    sourcemaps = require('gulp-sourcemaps'),
-    browserify = require('browserify'),
-    source = require('vinyl-source-stream'),
-    buffer = require('vinyl-buffer'),
-    uglify = require('gulp-uglify'),
-    gutil = require('gulp-util'),
-    ngAnnotate = require('browserify-ngannotate');
+var gulp = require('gulp');
+var sass = require('gulp-sass');
+var header = require('gulp-header');
+var cleanCSS = require('gulp-clean-css');
+var rename = require("gulp-rename");
+var pkg = require('./package.json');
+var browserSync = require('browser-sync').create();
 
-var CacheBuster = require('gulp-cachebust');
-var cachebust = new CacheBuster();
+// Set the banner content
+var banner = ['/*!\n',
+  ' * Start Bootstrap - <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n',
+  ' * Copyright 2013-' + (new Date()).getFullYear(), ' <%= pkg.author %>\n',
+  ' * Licensed under <%= pkg.license %> (https://github.com/BlackrockDigital/<%= pkg.name %>/blob/master/LICENSE)\n',
+  ' */\n',
+  ''
+].join('');
 
-/////////////////////////////////////////////////////////////////////////////////////
-//
-// cleans the build output
-//
-/////////////////////////////////////////////////////////////////////////////////////
+// Copy third party libraries from /node_modules into /vendor
+gulp.task('vendor', function() {
 
-gulp.task('clean', function (cb) {
-    return del([
-        'dist'
-    ], cb);
+  // Bootstrap
+  gulp.src([
+      './node_modules/bootstrap/dist/**/*',
+      '!./node_modules/bootstrap/dist/css/bootstrap-grid*',
+      '!./node_modules/bootstrap/dist/css/bootstrap-reboot*'
+    ])
+    .pipe(gulp.dest('./vendor/bootstrap'))
+
+  // jQuery
+  gulp.src([
+      './node_modules/jquery/dist/*',
+      '!./node_modules/jquery/dist/core.js'
+    ])
+    .pipe(gulp.dest('./vendor/jquery'))
+
 });
 
-/////////////////////////////////////////////////////////////////////////////////////
-//
-// runs bower to install frontend dependencies
-//
-/////////////////////////////////////////////////////////////////////////////////////
-
-gulp.task('bower', function() {
-
-    var install = require("gulp-install");
-
-    return gulp.src(['./bower.json'])
-        .pipe(install());
+// Compile SCSS
+gulp.task('css:compile', function() {
+  return gulp.src('./scss/**/*.scss')
+    .pipe(sass.sync({
+      outputStyle: 'expanded'
+    }).on('error', sass.logError))
+    .pipe(gulp.dest('./css'))
 });
 
-/////////////////////////////////////////////////////////////////////////////////////
-//
-// runs sass, creates css source maps
-//
-/////////////////////////////////////////////////////////////////////////////////////
-
-gulp.task('build-css', ['clean'], function() {
-    return gulp.src('./styles/*')
-        .pipe(sass())
-        //.pipe(cachebust.resources())
-        //.pipe(sourcemaps.write('./maps'))
-        .pipe(gulp.dest('./dist'));
+// Minify CSS
+gulp.task('css:minify', ['css:compile'], function() {
+  return gulp.src([
+      './css/*.css',
+      '!./css/*.min.css'
+    ])
+    .pipe(cleanCSS())
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(gulp.dest('./css'))
+    .pipe(browserSync.stream());
 });
 
-/////////////////////////////////////////////////////////////////////////////////////
-//
-// fills in the Angular template cache, to prevent loading the html templates via
-// separate http requests
-//
-/////////////////////////////////////////////////////////////////////////////////////
+// CSS
+gulp.task('css', ['css:compile', 'css:minify']);
 
-gulp.task('build-template-cache', ['clean'], function() {
-    
-    var ngHtml2Js = require("gulp-ng-html2js"),
-        concat = require("gulp-concat");
-    
-    return gulp.src("./partials/*.html")
-        .pipe(ngHtml2Js({
-            moduleName: "todoPartials",
-            prefix: "/partials/"
-        }))
-        .pipe(concat("templateCachePartials.js"))
-        .pipe(gulp.dest("./dist"));
+// Default task
+gulp.task('default', ['css', 'vendor']);
+
+// Configure the browserSync task
+gulp.task('browserSync', function() {
+  browserSync.init({
+    server: {
+      baseDir: "./"
+    }
+  });
 });
 
-/////////////////////////////////////////////////////////////////////////////////////
-//
-// runs jshint
-//
-/////////////////////////////////////////////////////////////////////////////////////
-
-gulp.task('jshint', function() {
-    return gulp.src('/js/*.js')
-        .pipe(jshint())
-        .pipe(jshint.reporter('default'));
+// Dev task
+gulp.task('dev', ['css', 'browserSync'], function() {
+  gulp.watch('./scss/*.scss', ['css']);
+  gulp.watch('./*.html', browserSync.reload);
 });
-
-/////////////////////////////////////////////////////////////////////////////////////
-//
-// Build a minified Javascript bundle - the order of the js files is determined
-// by browserify
-//
-/////////////////////////////////////////////////////////////////////////////////////
-
-gulp.task('build-js', ['clean'], function() {
-
-    var b = browserify({
-        entries: [  
-                    './node_modules/angular/angular.js',
-                    './node_modules/angular-route/angular-route.js',
-                    './node_modules/angular-resource/angular-resource.js',
-                    './node_modules/todomvc-common/base.js',
-                    './js/app.js',
-                    './js/controllers/todoCtrl.js',
-                    './js/services/todoStorage.js',
-                    './js/directives/todoEscape.js',
-                    './js/directives/todoFocus.js'
-                ],
-        debug: true,
-        transform: [ngAnnotate]
-    });
-
-    return b.bundle()
-        .pipe(source('bundle.js'))
-        .pipe(buffer())
-        //.pipe(cachebust.resources())
-        //.pipe(sourcemaps.init({loadMaps: true}))
-        //.pipe(uglify())
-        //.on('error', gutil.log)
-        //.pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest('./dist/js/'));
-});
-
-/////////////////////////////////////////////////////////////////////////////////////
-//
-// full build (except sprites), applies cache busting to the main page css and js bundles
-//
-/////////////////////////////////////////////////////////////////////////////////////
-
-gulp.task('build', [ 'clean', 'bower','build-css','build-template-cache', 'jshint', 'build-js'], function() {
-    return gulp.src('index.html')
-        .pipe(cachebust.references())
-        .pipe(gulp.dest('dist'));
-});
-
-/////////////////////////////////////////////////////////////////////////////////////
-//
-// watches file system and triggers a build when a modification is detected
-//
-/////////////////////////////////////////////////////////////////////////////////////
-
-gulp.task('watch', function() {
-    return gulp.watch(['./index.html','./partials/*.html', './styles/*.*css', './js/**/*.js'], ['build']);
-});
-
-/////////////////////////////////////////////////////////////////////////////////////
-//
-// launches a web server that serves files in the current directory
-//
-/////////////////////////////////////////////////////////////////////////////////////
-
-gulp.task('start', ['watch','build'], function() {
-    return gulp.src('.')
-        .pipe(webserver({
-            livereload: false,
-            directoryListing: true,
-            open: "http://localhost:8000/dist/index.html"
-        }));
-});
-
-/////////////////////////////////////////////////////////////////////////////////////
-//
-// launch a build upon modification and publish it to a running server
-//
-/////////////////////////////////////////////////////////////////////////////////////
-
-gulp.task('dev', ['watch', 'webserver']);
-
-
-
-gulp.task('default', ['build']);
