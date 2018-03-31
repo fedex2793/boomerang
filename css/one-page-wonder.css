@@ -28,6 +28,57 @@ h6 {
   border-radius: 5rem;
 }
 
+.spin {
+  -webkit-animation-name: spin;
+  -webkit-animation-duration: 8000ms;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: spin;
+  -moz-animation-duration: 8000ms;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: spin;
+  -ms-animation-duration: 8000ms;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+}
+
+@-ms-keyframes spin {
+  from {
+    -ms-transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes spin {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .navbar-custom {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -41,7 +92,7 @@ h6 {
   font-weight: 700;
 }
 
-.navbar-custom .navbar-brand .banner-logo {
+.navbar-custom .navbar-brand .header-logo {
   width: 90px;
 }
 
@@ -67,6 +118,11 @@ header.masthead {
 header.masthead .masthead-content {
   z-index: 1;
   position: relative;
+}
+
+header.masthead .masthead-content .banner-logo {
+  width: 50%;
+  min-width: 338px;
 }
 
 header.masthead .masthead-content .masthead-heading {
@@ -114,14 +170,83 @@ header.masthead .bg-circle-4 {
 
 @media (min-width: 992px) {
   header.masthead {
-    padding-top: calc(10rem + 55px);
+    padding-top: calc(10rem);
     padding-bottom: 10rem;
   }
   header.masthead .masthead-content .masthead-heading {
     font-size: 6rem;
   }
   header.masthead .masthead-content .masthead-subheading {
-    font-size: 4rem;
+    font-size: 2rem;
+  }
+}
+
+header .spin {
+  position: absolute;
+}
+
+header .spin.left {
+  left: 0;
+}
+
+header .spin.right {
+  right: 0;
+}
+
+@media (max-width: 1300px) {
+  header .spin.right {
+    display: none;
+  }
+}
+
+.container .construct h2 {
+  padding-left: 20%;
+}
+
+.container .construct p {
+  padding-left: 25%;
+}
+
+@media (max-width: 430px) {
+  .container .construct {
+    padding-bottom: 0 !important;
+  }
+  .container .construct h2 {
+    padding-left: 0 !important;
+    font-size: 41px !important;
+  }
+  .container .construct p {
+    padding-left: 0;
+  }
+}
+
+.container .spin {
+  width: 240px;
+}
+
+.container .spin.bike-container {
+  margin: 0 auto;
+}
+
+@media (max-width: 430px) {
+  .container .p-5.spin-container {
+    padding: 0 !important;
+    padding-top: 5px !important;
+    padding-bottom: 34px !important;
+  }
+}
+
+.container .motorbike-engranaje {
+  position: absolute;
+  top: 134px;
+  left: 42%;
+  width: 100px;
+}
+
+@media (max-width: 430px) {
+  .container .motorbike-engranaje {
+    left: 39%;
+    top: 88px;
   }
 }
 
