@@ -26,3 +26,28 @@ h6 {
 .rounded-pill {
   border-radius: 5rem;
 }
+
+ul.social-buttons {
+  margin-bottom: 0;
+  text-align: center;
+}
+
+ul.social-buttons li a {
+  font-size: 20px;
+  line-height: 40px;
+  display: block;
+  width: 40px;
+  height: 40px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  color: white;
+  border-radius: 100%;
+  outline: none;
+  background-color: black;
+}
+
+ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover {
+  background-color: #7762a0;
+  color: white;
+}

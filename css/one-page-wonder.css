@@ -28,6 +28,31 @@ h6 {
   border-radius: 5rem;
 }
 
+ul.social-buttons {
+  margin-bottom: 0;
+  text-align: center;
+}
+
+ul.social-buttons li a {
+  font-size: 20px;
+  line-height: 40px;
+  display: block;
+  width: 40px;
+  height: 40px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  color: white;
+  border-radius: 100%;
+  outline: none;
+  background-color: black;
+}
+
+ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover {
+  background-color: #7762a0;
+  color: white;
+}
+
 .navbar-custom {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -155,4 +180,112 @@ header.masthead .bg-circle-4 {
 
 .btn-secondary:focus {
   box-shadow: 0 0 0 0.2rem rgba(56, 49, 121, 0.5);
+}
+
+#cicle {
+  background-color: #f5f5f5;
+}
+
+#cicle .content {
+  max-width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#ecommerse {
+  height: 500px;
+  position: relative;
+  background-image: url("/images/e-commerce.jpg");
+  background-size: 100% 100%;
+}
+
+#ecommerse .container {
+  max-width: 100%;
+}
+
+#ecommerse .eccommerse {
+  width: 100vw;
+  height: 500px;
+}
+
+#ecommerse .eccommerse:after {
+  content: ' ';
+  border-bottom: 500px solid white;
+  border-right: 100vw solid transparent;
+  width: 0;
+  position: absolute;
+}
+
+#ecommerse .description {
+  position: absolute;
+  z-index: 200;
+  bottom: -41px;
+}
+
+#ecommerse .description .btn-container {
+  text-align: center;
+}
+
+#ecommerse .description .btn-container .btn {
+  margin-top: 0 !important;
+}
+
+#delivery {
+  height: 500px;
+  position: relative;
+  background-image: url("/images/bg1.jpg");
+  background-size: 100% 100%;
+}
+
+#delivery .container {
+  max-width: 100%;
+}
+
+#delivery .delivery {
+  width: 100vw;
+  height: 500px;
+}
+
+#delivery .delivery:after {
+  content: ' ';
+  border-top: 500px solid white;
+  border-left: 100vw solid transparent;
+  width: 0;
+  position: absolute;
+}
+
+#delivery .description {
+  position: absolute;
+  z-index: 200;
+  top: 0;
+}
+
+#delivery .description .btn-container {
+  text-align: center;
+}
+
+#delivery .description .btn-container .btn {
+  margin-top: 0 !important;
+}
+
+#company .title {
+  text-align: center;
+}
+
+#company .p-5 {
+  padding-bottom: 0 !important;
+}
+
+#related-companies .company-review {
+  margin-top: 15px;
+}
+
+#related-companies .company-review .review-title {
+  font-size: 24px;
+}
+
+footer {
+  border: solid;
+  height: 90px;
+  padding-top: 23px;
 }
