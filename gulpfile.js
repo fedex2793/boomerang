@@ -76,5 +76,5 @@ gulp.task('browserSync', function() {
 // Dev task
 gulp.task('dev', ['css', 'browserSync'], function() {
   gulp.watch('./scss/*.scss', ['css']);
-  gulp.watch('./*.html', browserSync.reload);
+  //gulp.watch('./*.html', browserSync.reload);
 });
