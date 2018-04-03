@@ -21,6 +21,9 @@
 #ecommerse{
     height: 500px;
     position: relative;
+    .text{
+        text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+    }
     background-image: url("/images/e-commerce.jpg");
     background-size: 100% 100%;
     .container{
@@ -51,10 +54,14 @@
 }
 
 #delivery{
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.3);
     height: 500px;
     position: relative;
     background-image: url("/images/bg1.jpg");
     background-size: 100% 100%;
+    .text{
+        text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+    }
     .container{
         max-width: 100%;
     }
@@ -83,6 +90,9 @@
 }
 
 #company{
+    .container{
+        padding-top: 24px;
+    }
     .title{
         text-align: center;
     }
@@ -107,6 +117,7 @@ footer{
 }
 
 #map {
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.3);
     width: 100%;
     height: 300px;
   }
@@ -125,4 +136,76 @@ footer{
     .telephone{
         padding-top: 8px;
     }
+}
+
+
+
+.slider{
+    width:100%;
+    height:685px;
+    overflow:hidden;
+    position:relative;
+    box-sizing: border-box;
+    white-space: nowrap;
+
+        .container{
+            width: 100%;
+            max-width: 100%;
+            height: 685px;
+            .mega-title{
+                margin-top: 200px;
+            }
+            .banner-logo{
+                width: 225px;
+                top: -57px;
+                position: absolute;
+                left: 60%;
+            }
+        
+    }
+
+    .loguito{
+        position: relative;
+    }
+
+    .log1{
+        background-image: url("/images/route1.jpg");
+    }
+    .log2{
+        background-image: url("/images/route2.jpg");
+        
+    }
+    .log3{
+        background-image: url("/images/bg1.jpg");
+        
+    }
+    .log4{
+        background-image: url("/images/bg2.jpg");
+        
+    }
+}
+.slider > div{
+    position:absolute;
+    animation:move_slide2 16s infinite;
+    opacity:0;
+}
+.slider > .log1{ animation-delay: 0; }
+.slider > .log2{ animation-delay: 4s; }
+.slider > .log3{ animation-delay: 8s; }
+.slider > .log4{ animation-delay: 12s; }
+
+@keyframes move_slide{
+    10%{ opacity:1; }
+    80%{ opacity:1; }
+    90%{ opacity:0 }
+}
+@keyframes move_slide2{
+    25%{opacity:1;}
+    40%{opacity:0;}
+}
+
+.company-contact a{
+    margin-top: 0!important;
+    padding: 9px;
+    margin-left: 61px;
 }

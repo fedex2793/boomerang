@@ -51,3 +51,13 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   background-color: #7762a0;
   color: white;
 }
+
+@font-face {
+  font-family: 'Meltix-Regular-Demo';
+  src:url('/fonts/Meltix-Regular-Demo.ttf.woff') format('woff'),
+      url('/fonts/Meltix-Regular-Demo.ttf.svg#Meltix-Regular-Demo') format('svg'),
+      url('/fonts/Meltix-Regular-Demo.ttf.eot'),
+      url('/fonts/Meltix-Regular-Demo.ttf.eot?#iefix') format('embedded-opentype'); 
+  font-weight: normal;
+  font-style: normal;
+}
