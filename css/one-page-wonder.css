@@ -241,7 +241,7 @@ a.navbar-brand {
   height: 500px;
   position: relative;
   overflow: hidden;
-  background-image: url("/images/e-commerce2.jpg");
+  background-image: url("/images/ecoomerse-new.jpg");
   background-size: 100% 100%;
 }
 
@@ -285,7 +285,7 @@ a.navbar-brand {
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.3);
   height: 500px;
   position: relative;
-  background-image: url("/images/bg1.jpg");
+  background-image: url("/images/motos23.jpg");
   background-size: 100% 100%;
   overflow: hidden;
 }
@@ -452,7 +452,7 @@ footer .telephone {
 }
 
 .slider .log4 {
-  background-image: url("/images/bg2.jpg");
+  background-image: url("/images/black.jpg");
 }
 
 .slider.slim {
@@ -566,16 +566,32 @@ footer .telephone {
   border-radius: 100px !important;
 }
 
+#contact-form .form input.form-control.error {
+  box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.59);
+}
+
 #contact-form .form textarea.form-control {
   height: 228px;
   resize: none;
   border-radius: 20px;
 }
 
+#contact-form .form textarea.form-control.error {
+  box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.59);
+}
+
 @media (max-width: 765px) {
   #contact-form .form textarea.form-control {
     height: 150px;
   }
+}
+
+#contact-everywhere input.form-control.error {
+  box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.59);
+}
+
+#contact-everywhere textarea.form-control.error {
+  box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.59);
 }
 
 .icons-container {
@@ -1024,4 +1040,68 @@ footer .telephone {
   .timeline-small {
     display: none;
   }
+}
+
+.loader {
+  position: absolute;
+  width: 23px;
+  top: 23px;
+  left: 112px;
+  display: none;
+}
+
+.loader2 {
+  position: absolute;
+  width: 23px;
+  top: 8px;
+  left: 97px;
+  display: none;
+}
+
+#submit-cadete a {
+  position: relative;
+}
+
+#submit-cadete.sending a {
+  background-color: #ca82ff !important;
+}
+
+#submit-cadete.sending a:hover {
+  background-color: #ca82ff !important;
+}
+
+#submit-cadete.sending .loader {
+  display: block;
+}
+
+#submit-empresa a {
+  position: relative;
+}
+
+#submit-empresa.sending a {
+  background-color: #ca82ff !important;
+}
+
+#submit-empresa.sending a:hover {
+  background-color: #ca82ff !important;
+}
+
+#submit-empresa.sending .loader {
+  display: block;
+}
+
+#submit-every a {
+  position: relative;
+}
+
+#submit-every.sending a {
+  background-color: #ca82ff !important;
+}
+
+#submit-every.sending a:hover {
+  background-color: #ca82ff !important;
+}
+
+#submit-every.sending .loader2 {
+  display: block;
 }

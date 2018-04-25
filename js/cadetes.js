@@ -20,34 +20,125 @@
 
   document.addEventListener('DOMContentLoaded', documentReady, false);
 
+
+  function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
+
   function documentReady(){
     $("#submit-cadete").click(function(e){
       debugger;
         e.preventDefault();
-        debugger;
+
+        $('#submit-cadete').addClass("sending");
+        $('#name').removeClass("error");
+        $('#phone').removeClass("error");
+        $('#message').removeClass("error");
+        $('#email').removeClass("error");
+        
         var companyName=  $('#contact-form').find('input')[0].value;
         var companyEmail= $('#contact-form').find('input')[1].value;
         var companyPhone= $('#contact-form').find('input')[2].value;
         var companyMessage= $('#contact-form').find('textarea')[0].value;
+        
+        var error = false;
+        if(!companyName){
+          error = true;
+          $('#name').addClass("error");
+        }
+        if(!companyPhone){
+          error = true;
+          $('#phone').addClass("error");
+        }
+        if(!companyMessage){
+          error = true;
+          $('#message').addClass("error");
+        }
+        if(companyEmail && !validateEmail(companyEmail)){
+          error = true;
+          $('#email').addClass("error");
+        }
 
-        /*ceisenhardt@bng.com.uy
-        Email.send("clientes@bng.com.uy",
-        "ceisenhardt@bng.com.uy",
-        "This is a subject",
-        "this is the body",
-        {token: "e1c10cbd-672d-41b6-bd54-80dc313385f0"});
-*/
-        Email.send("clientes@bng.com.uy",
-        "contacto@bng.com.uy",
-        "Se viene lo bueno",
-        "PUTO EL QUE LEE",
-        "mail.bng.com.uy",
-        "clientes@bng.com.uy",
-        "ClientesBng_2018");
+        if(!error){
+          var mail = companyEmail ? companyEmail : "-";
+          var body = "Nombre del cadete: "+companyName+"<br/>Telefono: "+companyPhone+"<br/>Email: "+mail+"<br/><br/>Mensaje: "+companyMessage;
 
-
+          Email.send("clientes@bng.com.uy",
+          "contacto@bng.com.uy,arodriguez@bng.com.uy,ceisenhardt@bng.com.uy,drodriguez@bng.com.uy",
+          "Nuevo contacto de CADETE",
+          body,
+          "mail.bng.com.uy",
+          "clientes@bng.com.uy",
+          "ClientesBng_2018",
+          function done(message) { 
+            $('#submit-cadete').removeClass("sending");
+            $('#contact-form').find('input')[0].value = "";
+            $('#contact-form').find('input')[1].value= "";
+            $('#contact-form').find('input')[2].value= "";
+            $('#contact-form').find('textarea')[0].value= "";
+            alert("Mensaje enviado con exito, nos contactaremos a la brevedad!.");
+          });
+        }else{
+          $('#submit-cadete').removeClass("sending");
+        }
     })
 
+    $("#submit-every").click(function(e){
+        e.preventDefault();
+
+        $('#submit-every').addClass("sending");
+        $('#name-every').removeClass("error");
+        $('#phone-every').removeClass("error");
+        $('#message-every').removeClass("error");
+        $('#email-every').removeClass("error");
+        
+        var companyName=  $('#contact-everywhere').find('input')[0].value;
+        var companyEmail= $('#contact-everywhere').find('input')[1].value;
+        var companyPhone= $('#contact-everywhere').find('input')[2].value;
+        var companyMessage= $('#contact-everywhere').find('textarea')[0].value;
+        
+        var error = false;
+        if(!companyName){
+          error = true;
+          $('#name-every').addClass("error");
+        }
+        if(!companyPhone){
+          error = true;
+          $('#phone-every').addClass("error");
+        }
+        if(!companyMessage){
+          error = true;
+          $('#message-every').addClass("error");
+        }
+        if(companyEmail && !validateEmail(companyEmail)){
+          error = true;
+          $('#email-every').addClass("error");
+        }
+
+        if(!error){
+          var mail = companyEmail ? companyEmail : "-";
+          var body = "Nombre del cadete o empresa: "+companyName+"<br/>Telefono: "+companyPhone+"<br/>Email: "+mail+"<br/><br/>Mensaje: "+companyMessage;
+
+          Email.send("clientes@bng.com.uy",
+          "contacto@bng.com.uy,arodriguez@bng.com.uy,ceisenhardt@bng.com.uy,drodriguez@bng.com.uy",
+          "Nuevo contacto de CADETE",
+          body,
+          "mail.bng.com.uy",
+          "clientes@bng.com.uy",
+          "ClientesBng_2018",
+          function done(message) { 
+            $('#submit-every').removeClass("sending");
+            $('#contact-everywhere').find('input')[0].value = "";
+            $('#contact-everywhere').find('input')[1].value= "";
+            $('#contact-everywhere').find('input')[2].value= "";
+            $('#contact-everywhere').find('textarea')[0].value= "";
+            alert("Mensaje enviado con exito, nos contactaremos a la brevedad!.");
+          });
+        }else{
+          $('#submit-every').removeClass("sending");
+        }
+    })
 
     var messengerOpen = false;
     $("#header-contact").click(function(e){
