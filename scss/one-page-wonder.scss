@@ -8,7 +8,16 @@
 @import "masthead.scss";
 @import "bootstrap-overrides.scss";
 
-
+section{
+    background-color: white;
+    @media(min-width:1500px) {
+        width: 76%;
+        margin: 0 auto;
+    }
+}
+.main-content{
+    background-color: #eaeaea96;
+}
 #cicle{
     background-color: #f5f5f5;
     .content{
@@ -18,9 +27,16 @@
     }
 }
 
+a.navbar-brand{
+    position: relative;
+    font-family: Meltix-Regular-Demo;
+    font-size: 20px;
+    text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+}
 #ecommerse{
     height: 500px;
     position: relative;
+    overflow: hidden;
     .text{
         text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
     }
@@ -32,6 +48,7 @@
     .eccommerse{
         width: 100vw;
         height: 500px;
+        overflow: hidden;
     }
     .eccommerse:after {
         content: ' ';
@@ -59,6 +76,7 @@
     position: relative;
     background-image: url("/images/bg1.jpg");
     background-size: 100% 100%;
+    overflow: hidden;
     .text{
         text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
     }
@@ -99,6 +117,11 @@
     .p-5{
         padding-bottom: 0!important;
     }
+    .display-4.title{
+        margin-bottom: 30px;
+        text-align: center;
+        display: inline;
+    }
 }
 
 #related-companies{
@@ -121,6 +144,10 @@ footer{
     box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.3);
     width: 100%;
     height: 300px;
+    @media(min-width:1500px) {
+        width: 76%;
+        margin: 0 auto;
+    }
   }
   @media(min-width:992px) {
     .content-section {
@@ -140,7 +167,16 @@ footer{
 }
 
 
-
+.navbar-custom .navbar-brand{
+    text-transform: lowercase;
+    letter-spacing: 0;
+    .banner-logo{
+    position: absolute;
+    right: -17px;
+    top: 1px;
+    width: 30px!important;
+    }
+}    
 .slider{
     width:100%;
     height:685px;
@@ -161,6 +197,11 @@ footer{
             top: -57px;
             position: absolute;
             left: 60%;
+            @media(max-width:500px) {
+                width: 100px;
+                top: -24px;
+                left: 76%;
+              }
         }
         
     }
@@ -286,7 +327,8 @@ footer{
 }
 
 #about{
-    padding-top: 70px;
+    padding-top: 100px;
+    padding-bottom: 100px;
     margin-bottom: 33px;
     .timeline-image{
       background-color: black;
@@ -301,6 +343,7 @@ footer{
 .timeline {
     position: relative;
     padding: 0;
+    margin-bottom: 53px;
     list-style: none;
     &:before {
       position: absolute;
@@ -389,6 +432,11 @@ footer{
         &.subheading {
           text-transform: none;
         }
+
+        @media(max-width:600px) {
+            font-size: 16px;
+            width: 100px;
+        }
       }
     }
     .timeline-body {
@@ -457,7 +505,7 @@ footer{
   @media(min-width:1200px) {
     .timeline {
       > li {
-        min-height: 170px;
+        min-height: 150px;
         .timeline-panel {
           padding: 65px 20px 20px 100px;
         }
@@ -476,3 +524,208 @@ footer{
       }
     }
   }
+
+  /*
+  .timeline.boomerang{
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    transform: rotate(270deg);
+    .timeline-image{
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+    .timeline-panel{
+        display: none;
+    }
+  }*/
+
+  .timeline.boomerang.none{
+      display: none;
+  }
+  .timeline-cicle{
+      .one-cicle{
+        width: 20%;
+        float: left;
+        &.down{
+            margin-top: 90px;
+            margin-bottom: 37px;
+        }
+      }
+      ul{
+          .timeline-heading{
+              
+          }
+      }
+  }
+
+  #cicle1, #cicle3, #cicle5{
+    .timeline:before{
+        display: none!important;
+    }
+      .timeline-image{
+        margin-top: 36px;
+
+        @media(max-width:600px) {
+            .fa-stack{
+                width: 80px;
+                height: 80px;
+                svg{
+                    width: 34px!important;
+                    margin-left: -14px;
+                }
+            }
+        }
+          img{
+            width: 90px;
+            margin-left: 113px;
+            -webkit-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            transform: rotate(-8deg);
+            @media(max-width:500px) {
+                margin-left: 32px;
+                margin-top: -23px;
+                width: 43px;
+            }
+          }
+      }
+      .timeline-panel{
+        margin-top: 0;
+        padding: 0px;
+        width: 100%;
+        text-align: center;
+      }
+  }
+
+  #cicle2, #cicle4{
+    .timeline:before{
+        display: none!important;
+    }
+        .timeline-inverted{
+            position: relative;
+        }
+        img{
+            width: 90px;
+            position: absolute;
+            right: -46px;
+            top: -28px;
+            -moz-transform: scale(1, -1);
+            -webkit-transform: scale(1, -1);
+            -o-transform: scale(1, -1);
+            -ms-transform: scale(1, -1);
+        }
+
+    .timeline-panel{
+        padding: 0px;
+        width: 100%;
+        text-align: center;
+        padding-top: 164px;
+        @media(max-width:600px) {
+            padding-top: 95px;
+        }
+    }
+
+    @media(max-width:600px) {
+        margin-left: -5px;
+        img{
+            width: 43px;
+            right: -18px;
+        }
+        .fa-stack{
+            width: 80px;
+            height: 80px;
+            svg{
+                width: 34px!important;
+                margin-left: -14px;
+            }
+        }
+    }
+}
+
+#cicle2{
+    @media(max-width:500px) {
+        margin-left: -5px;
+    }
+}
+#cicle4{
+    @media(max-width:500px) {
+        margin-left: -13px;
+    }
+}
+
+#cicle3, #cicle5{
+    .timeline-image{
+        margin-left: -65px;
+        @media(max-width:600px) {
+            margin-left: -10px;
+        }
+    }
+}
+
+#contact-everywhere{
+    position: fixed;
+    bottom: 0;
+    background-color: #fff;
+    width: 300px;
+    z-index: 2000;
+    right: 5px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.3);
+    cursor: pointer;
+    &.closed .contact-content{
+        display: none;
+    }
+    .header-everywhere{
+        border-bottom: 1px solid gainsboro;
+        text-align: center;
+        padding: 10px 10px;
+        p{
+            display: inline;
+        }
+        svg{
+            float: right;
+            margin-top: 4px;
+        }
+    }
+    .contact-content{
+        text-align: center;
+        padding: 10px 10px;
+        input{
+            border-radius: 100px!important;
+        }
+    }
+    textarea{
+        margin-top: 0px;
+        margin-bottom: 0px;
+        height: 122px;
+        resize: none;
+        border-radius: 20px;
+    }
+    .company-contact{
+        text-align: center;
+        a{
+            margin: 0;
+            width: 130px;
+        }
+    }
+}
+
+.timeline-big{
+    width: 100%;
+    max-width: 1440px;
+    @media(max-width:600px) {
+        display: none;
+    }
+}
+
+.timeline-small{
+    width: 100%;
+    @media(min-width:600px) {
+        display: none;
+    }
+}

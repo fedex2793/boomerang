@@ -21,22 +21,23 @@
   document.addEventListener('DOMContentLoaded', documentReady, false);
 
   function documentReady(){
-    document.getElementsByClassName("empresa-ecommerse")[0].addEventListener("click", function(e){
-      e.preventDefault();
-      document.getElementById("ecommerse").scrollIntoView({block: 'start', behavior: 'smooth'});
-    });
-    document.getElementsByClassName("cadetes")[0].addEventListener("click", function(e){
-      e.preventDefault();
-      document.getElementById("delivery").scrollIntoView({block: 'start', behavior: 'smooth'});
-    });
-    document.getElementsByClassName("nuestra-empresa")[0].addEventListener("click", function(e){
-      e.preventDefault();
-      document.getElementById("company").scrollIntoView({block: 'start', behavior: 'smooth'});
-    });
-    document.getElementsByClassName("contactarnos")[0].addEventListener("click", function(e){
-      e.preventDefault();
-      document.getElementById("map").scrollIntoView({block: 'start', behavior: 'smooth'});
-    });
+    $("#submit-empresa").click(function(e){
+        e.preventDefault();
+        debugger;
+        var companyName=  $('#contact-form').find('input')[0].value;
+        var companyEmail= $('#contact-form').find('input')[1].value;
+        var companyPhone= $('#contact-form').find('input')[2].value;
+        var companyMessage= $('#contact-form').find('textarea')[0].value;
+
+        Email.send("from@you.com",
+            "to@them.com",
+            "This is a subject",
+            "this is the body",
+            "smtp.yourisp.com",
+            "username",
+            "password");
+    })
+
 
     var messengerOpen = false;
     $("#header-contact").click(function(e){
@@ -47,18 +48,20 @@
         $('#contact-everywhere').removeClass( "closed" );
       }
       messengerOpen = !messengerOpen;
-  })
 
-  $(".main-contacto").click(function(e){
-    e.preventDefault();
-    if(messengerOpen){
-      $('#contact-everywhere').addClass( "closed" );
-    }else{
-      $('#contact-everywhere').removeClass( "closed" );
-    }
-    messengerOpen = !messengerOpen;
-  });
-}
+    });
+
+    $(".main-contacto").click(function(e){
+        e.preventDefault();
+        if(messengerOpen){
+          $('#contact-everywhere').addClass( "closed" );
+        }else{
+          $('#contact-everywhere').removeClass( "closed" );
+        }
+        messengerOpen = !messengerOpen;
+      });
+
+  }
 
   function init() {
     // Basic options for a simple Google Map

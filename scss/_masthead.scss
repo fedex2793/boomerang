@@ -22,6 +22,10 @@ header.masthead {
     font-size: 110px;
     letter-spacing: -8px;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    @media(max-width:500px) {
+      font-size: 63px;
+      letter-spacing: -4px;
+    }
   }
   .mega-subtitle{
     font-family: 'Meltix-Regular-Demo';
