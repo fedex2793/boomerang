@@ -108,7 +108,7 @@ a.navbar-brand{
 }
 
 #company{
-    padding-bottom: 81px;
+    border-top: solid #ececec 30px;
     .container{
         padding-top: 24px;
     }
@@ -117,13 +117,14 @@ a.navbar-brand{
     }
     .p-5{
         padding-bottom: 0!important;
+        padding: 2rem!important;
     }
-    @media(max-width:650px) {
-        .fa-stack.fa-3x{
-            width: 100%;
-            text-align: center;
-        }
+
+    .fa-stack.fa-3x{
+        width: 100%;
+        text-align: center;
     }
+    
     .display-4.title{
         margin-bottom: 30px;
         text-align: center;
@@ -361,6 +362,7 @@ footer{
 }
 
 #about{
+        border-top: solid #ececec 30px;
     padding: 150px 20px;
     margin-bottom: 33px;
     .timeline-image{
@@ -831,4 +833,22 @@ footer{
 
 #related-companies{
     display: none;
+}
+
+footer{
+    @media(max-width:600px) {
+        .list-inline.social-buttons{
+            margin-bottom: 51px;
+        }
+        .bg-white{
+            margin-bottom: 100px;
+        }
+        .company-contact{
+            display: none;
+        }
+    }
+}
+
+.firt-parrafo{
+    margin-top: 31px;
 }

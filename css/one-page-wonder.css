@@ -326,7 +326,7 @@ a.navbar-brand {
 }
 
 #company {
-  padding-bottom: 81px;
+  border-top: solid #ececec 30px;
 }
 
 #company .container {
@@ -339,13 +339,12 @@ a.navbar-brand {
 
 #company .p-5 {
   padding-bottom: 0 !important;
+  padding: 2rem !important;
 }
 
-@media (max-width: 650px) {
-  #company .fa-stack.fa-3x {
-    width: 100%;
-    text-align: center;
-  }
+#company .fa-stack.fa-3x {
+  width: 100%;
+  text-align: center;
 }
 
 #company .display-4.title {
@@ -625,6 +624,7 @@ footer .telephone {
 }
 
 #about {
+  border-top: solid #ececec 30px;
   padding: 150px 20px;
   margin-bottom: 33px;
 }
@@ -1127,4 +1127,20 @@ footer .telephone {
 
 #related-companies {
   display: none;
+}
+
+@media (max-width: 600px) {
+  footer .list-inline.social-buttons {
+    margin-bottom: 51px;
+  }
+  footer .bg-white {
+    margin-bottom: 100px;
+  }
+  footer .company-contact {
+    display: none;
+  }
+}
+
+.firt-parrafo {
+  margin-top: 31px;
 }
