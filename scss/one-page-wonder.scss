@@ -108,6 +108,7 @@ a.navbar-brand{
 }
 
 #company{
+    padding-bottom: 81px;
     .container{
         padding-top: 24px;
     }
@@ -117,10 +118,21 @@ a.navbar-brand{
     .p-5{
         padding-bottom: 0!important;
     }
+    @media(max-width:650px) {
+        .fa-stack.fa-3x{
+            width: 100%;
+            text-align: center;
+        }
+    }
     .display-4.title{
         margin-bottom: 30px;
         text-align: center;
         display: inline;
+
+        @media(max-width:650px) {
+            font-size: 35px;
+            display: block;
+        }
     }
 }
 
@@ -189,6 +201,8 @@ footer{
         width: 100%;
         max-width: 100%;
         height: 685px;
+        background-size: cover;
+        background-position: center top;
         .mega-title{
             margin-top: 200px;
         }
@@ -347,8 +361,7 @@ footer{
 }
 
 #about{
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding: 150px 20px;
     margin-bottom: 33px;
     .timeline-image{
       background-color: black;
@@ -814,4 +827,8 @@ footer{
     .loader2{
         display: block;
     }
+}
+
+#related-companies{
+    display: none;
 }

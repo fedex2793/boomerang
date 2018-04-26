@@ -325,6 +325,10 @@ a.navbar-brand {
   margin-top: 0 !important;
 }
 
+#company {
+  padding-bottom: 81px;
+}
+
 #company .container {
   padding-top: 24px;
 }
@@ -337,10 +341,24 @@ a.navbar-brand {
   padding-bottom: 0 !important;
 }
 
+@media (max-width: 650px) {
+  #company .fa-stack.fa-3x {
+    width: 100%;
+    text-align: center;
+  }
+}
+
 #company .display-4.title {
   margin-bottom: 30px;
   text-align: center;
   display: inline;
+}
+
+@media (max-width: 650px) {
+  #company .display-4.title {
+    font-size: 35px;
+    display: block;
+  }
 }
 
 #related-companies .company-review {
@@ -414,6 +432,8 @@ footer .telephone {
   width: 100%;
   max-width: 100%;
   height: 685px;
+  background-size: cover;
+  background-position: center top;
 }
 
 .slider .container .mega-title {
@@ -605,8 +625,7 @@ footer .telephone {
 }
 
 #about {
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding: 150px 20px;
   margin-bottom: 33px;
 }
 
@@ -1104,4 +1123,8 @@ footer .telephone {
 
 #submit-every.sending .loader2 {
   display: block;
+}
+
+#related-companies {
+  display: none;
 }

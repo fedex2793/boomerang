@@ -65,7 +65,7 @@
           var body = "Nombre del cadete: "+companyName+"<br/>Telefono: "+companyPhone+"<br/>Email: "+mail+"<br/><br/>Mensaje: "+companyMessage;
 
           Email.send("clientes@bng.com.uy",
-          "contacto@bng.com.uy,arodriguez@bng.com.uy,ceisenhardt@bng.com.uy,drodriguez@bng.com.uy",
+          "alexis.rodriguez.contreras@gmail.com,fede.acevedo93@gmail.com",
           "Nuevo contacto de CADETE",
           body,
           "mail.bng.com.uy",
