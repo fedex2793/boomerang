@@ -26,6 +26,10 @@
   }
   
   function documentReady(){
+    document.getElementsByClassName("servicio")[0].addEventListener("click", function(e){
+      e.preventDefault();
+      document.getElementById("about").scrollIntoView({block: 'start', behavior: 'smooth'});
+    });
     document.getElementsByClassName("empresa-ecommerse")[0].addEventListener("click", function(e){
       e.preventDefault();
       document.getElementById("ecommerse").scrollIntoView({block: 'start', behavior: 'smooth'});
@@ -101,8 +105,8 @@
         var body = "Nombre del cadete o empresa: "+companyName+"<br/>Telefono: "+companyPhone+"<br/>Email: "+mail+"<br/><br/>Mensaje: "+companyMessage;
 
         Email.send("clientes@bng.com.uy",
-        "contacto@bng.com.uy,arodriguez@bng.com.uy,ceisenhardt@bng.com.uy,drodriguez@bng.com.uy",
-        "Nuevo contacto de CADETE",
+        "alexis.rodriguez.contreras@gmail.com",
+        "Nuevo contacto de CADETE/EMPRESA",
         body,
         "mail.bng.com.uy",
         "clientes@bng.com.uy",

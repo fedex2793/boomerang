@@ -474,25 +474,66 @@ footer .telephone {
   background-image: url("/images/credit.jpg");
 }
 
+.slider {
+  width: 100%;
+  height: 685px;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.slider .container {
+  width: 100%;
+  max-width: 100%;
+  height: 685px;
+  background-size: cover;
+  background-position: center top;
+}
+
+.slider .container .mega-title {
+  margin-top: 200px;
+}
+
+.slider .container .banner-logo {
+  width: 225px;
+  top: -57px;
+  position: absolute;
+  left: 60%;
+}
+
+@media (max-width: 500px) {
+  .slider .container .banner-logo {
+    width: 100px;
+    top: -24px;
+    left: 76%;
+  }
+}
+
 .slider.slim {
   height: 472px;
 }
 
 .slider.slim .container {
-  width: 100%;
-  max-width: 100%;
   height: 472px;
 }
 
-.slider.slim .container .mega-title {
-  margin-top: 174px;
+.slider.slim .mega-title {
+  margin-top: 170px;
 }
 
-.slider.slim .container .banner-logo {
-  width: 225px;
-  top: -57px;
-  position: absolute;
-  left: 60%;
+.slider.slim .banner-logo {
+  top: -87px;
+}
+
+@media (max-width: 500px) {
+  .slider.slim .banner-logo {
+    top: -54px;
+  }
+}
+
+.slider.slim .main-contacto {
+  display: none;
 }
 
 .slider > div {

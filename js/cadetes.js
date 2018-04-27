@@ -27,8 +27,12 @@
   }
 
   function documentReady(){
+    document.getElementsByClassName("cadetes-contacto")[0].addEventListener("click", function(e){
+      e.preventDefault();
+      document.getElementById("contact-form").scrollIntoView({block: 'start', behavior: 'smooth'});
+    });
+
     $("#submit-cadete").click(function(e){
-      debugger;
         e.preventDefault();
 
         $('#submit-cadete').addClass("sending");
@@ -65,7 +69,7 @@
           var body = "Nombre del cadete: "+companyName+"<br/>Telefono: "+companyPhone+"<br/>Email: "+mail+"<br/><br/>Mensaje: "+companyMessage;
 
           Email.send("clientes@bng.com.uy",
-          "alexis.rodriguez.contreras@gmail.com,fede.acevedo93@gmail.com",
+          "alexis.rodriguez.contreras@gmail.com",
           "Nuevo contacto de CADETE",
           body,
           "mail.bng.com.uy",
@@ -121,7 +125,7 @@
           var body = "Nombre del cadete o empresa: "+companyName+"<br/>Telefono: "+companyPhone+"<br/>Email: "+mail+"<br/><br/>Mensaje: "+companyMessage;
 
           Email.send("clientes@bng.com.uy",
-          "contacto@bng.com.uy,arodriguez@bng.com.uy,ceisenhardt@bng.com.uy,drodriguez@bng.com.uy",
+          "alexis.rodriguez.contreras@gmail.com",
           "Nuevo contacto de CADETE",
           body,
           "mail.bng.com.uy",
